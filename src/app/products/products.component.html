@@ -13,13 +13,19 @@
           <th>Quantity</th>
         </tr>
 
-        <tr *ngFor="let p of products">
+        <tr *ngFor="let p of products._embedded.products">
           <td>{{p.id}}</td>
           <td>{{p.description}}</td>
           <td>{{p.price|number: '0.2'}}</td>
           <td>{{p.quantity}}</td>
         </tr>
       </table>
+
+      <ul *ngIf="pages" class="nav nav-tabs justify-content-center">
+        <li [ngClass]="i == currentPage?'active': ''" *ngFor="let p of pages; let i = index" class="nav-item">
+          <a (click)="onGetProductsPage(i)" class="nav-link">{{i}}</a>
+        </li>
+      </ul>
     </div>
   </div>
 </div>

@@ -9,6 +9,10 @@ import {ProductsService} from '../services/products.service';
 export class ProductsComponent implements OnInit {
 
   public products: any;
+  public size = 5;
+  public currentPage = 0;
+  public totalPages: number;
+  public pages: Array<number>;
 
   constructor(private productsService: ProductsService) { }
 
@@ -16,12 +20,19 @@ export class ProductsComponent implements OnInit {
   }
 
   onGetProducts() {
-    this.productsService.getProducts()
+    this.productsService.getProducts(this.currentPage, this.size)
       .subscribe(data => {
+      this.totalPages = data['page'].totalPages;
+      this.pages = new Array<number>(this.totalPages);
       this.products = data;
     }, error => {
       console.log(error);
     });
+  }
+
+  onGetProductsPage(i: number) {
+    this.currentPage = i;
+    this.onGetProducts();
   }
 
 }
