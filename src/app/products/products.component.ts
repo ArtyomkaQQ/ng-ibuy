@@ -13,6 +13,7 @@ export class ProductsComponent implements OnInit {
   public currentPage = 0;
   public totalPages: number;
   public pages: Array<number>;
+  private currentKeyword: string;
 
   constructor(private productsService: ProductsService) { }
 
@@ -32,7 +33,19 @@ export class ProductsComponent implements OnInit {
 
   onGetProductsPage(i: number) {
     this.currentPage = i;
-    this.onGetProducts();
+    this.onSearch({keyword: this.currentKeyword});
+  }
+
+  onSearch(form: any) {
+    this.currentKeyword = form.keyword;
+    this.productsService.getProductsByKeyword(form.keyword, this.currentPage, this.size)
+      .subscribe(data => {
+        this.totalPages = data['page'].totalPages;
+        this.pages = new Array<number>(this.totalPages);
+        this.products = data;
+      }, error => {
+        console.log(error);
+      });
   }
 
 }

@@ -3,9 +3,9 @@ import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
 import {Observable} from 'rxjs';
 import {LocalStorageService} from 'ngx-webstorage';
-import {JwtAutResponse} from './jwt-aut-response';
-import {RegisterPayload} from './register-payload';
-import {LoginPayload} from './login-payload';
+import {JwtAutResponse} from '../auth/jwt-aut-response';
+import {RegisterPayload} from '../auth/register-payload';
+import {LoginPayload} from '../auth/login-payload';
 
 @Injectable({
   providedIn: 'root'

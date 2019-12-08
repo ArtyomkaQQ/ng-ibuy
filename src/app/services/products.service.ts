@@ -14,4 +14,8 @@ export class ProductsService {
     return this.httpClient.get(this.host + '/products?page=' + page + '&size=' + size);
   }
 
+  public getProductsByKeyword(mc: string, page: number, size: number) {
+    return this.httpClient.get(this.host + '/products/search/by_description_page?mc=' + mc + '&page=' + page + '&size=' + size);
+  }
+
 }
