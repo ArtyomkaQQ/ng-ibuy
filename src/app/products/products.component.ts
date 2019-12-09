@@ -53,4 +53,16 @@ export class ProductsComponent implements OnInit {
       });
   }
 
+  onDeleteProduct(p: any) {
+    const conf = confirm('Are you sure?');
+    if (conf) {
+      this.productsService.deleteProducts(p._links.self.href)
+        .subscribe(data => {
+          this.onSearchProducts();
+        }, error => {
+          console.log('Error deleting product');
+        });
+    }
+  }
+
 }

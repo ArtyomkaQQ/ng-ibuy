@@ -7,9 +7,11 @@
     <div class="panel-body">
       <form #f="ngForm" (ngSubmit)="onSearch(f.value)">
         <div class="form-group">
-          <label>Keyword</label>
+          <label>Keyword: </label>
           <input type="text" name="keyword" ngModel/>
-          <button type="submit" class="btn btn-primary">Search</button>
+          <button type="submit" class="btn btn-primary">
+            Search
+          </button>
         </div>
       </form>
 
@@ -24,6 +26,7 @@
           <td>{{p.description}}</td>
           <td>{{p.price|number: '0.2'}}</td>
           <td>{{p.quantity}}</td>
+          <td><a class="btn btn-danger" (click)="onDeleteProduct(p)">Delete</a></td>
         </tr>
       </table>
 
