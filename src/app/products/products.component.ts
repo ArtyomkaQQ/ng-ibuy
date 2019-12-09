@@ -13,14 +13,14 @@ export class ProductsComponent implements OnInit {
   public currentPage = 0;
   public totalPages: number;
   public pages: Array<number>;
-  private currentKeyword: string;
+  private currentKeyword = '';
 
   constructor(private productsService: ProductsService) { }
 
   ngOnInit() {
   }
 
-  onGetProducts() {
+  onProducts() {
     this.productsService.getProducts(this.currentPage, this.size)
       .subscribe(data => {
       this.totalPages = data['page'].totalPages;
@@ -31,14 +31,19 @@ export class ProductsComponent implements OnInit {
     });
   }
 
-  onGetProductsPage(i: number) {
+  onProductsPage(i: number) {
     this.currentPage = i;
-    this.onSearch({keyword: this.currentKeyword});
+    this.onSearchProducts();
   }
 
   onSearch(form: any) {
+    this.currentPage = 0;
     this.currentKeyword = form.keyword;
-    this.productsService.getProductsByKeyword(form.keyword, this.currentPage, this.size)
+    this.onSearchProducts();
+  }
+
+  onSearchProducts() {
+    this.productsService.getProductsByKeyword(this.currentKeyword, this.currentPage, this.size)
       .subscribe(data => {
         this.totalPages = data['page'].totalPages;
         this.pages = new Array<number>(this.totalPages);

@@ -2,7 +2,7 @@
   <div class="panel panel-primary">
     <div class="panel-heading">List products</div>
     <div class="panel-body">
-      <button class="btn btn-primary" (click)="onGetProducts()">Products</button>
+      <button class="btn btn-primary" (click)="onProducts()">Products</button>
     </div>
     <div class="panel-body">
       <form #f="ngForm" (ngSubmit)="onSearch(f.value)">
@@ -15,14 +15,12 @@
 
       <table *ngIf="products" class="table table-striped">
         <tr>
-          <th>ID</th>
           <th>Description</th>
           <th>Price</th>
           <th>Quantity</th>
         </tr>
 
         <tr *ngFor="let p of products._embedded.products">
-          <td>{{p.id}}</td>
           <td>{{p.description}}</td>
           <td>{{p.price|number: '0.2'}}</td>
           <td>{{p.quantity}}</td>
@@ -31,7 +29,7 @@
 
       <ul *ngIf="pages" class="nav nav-tabs justify-content-center">
         <li [ngClass]="i == currentPage?'active': ''" *ngFor="let p of pages; let i = index" class="nav-item">
-          <a (click)="onGetProductsPage(i)" class="nav-link">{{i + 1}}</a>
+          <a (click)="onProductsPage(i)" class="nav-link">{{i + 1}}</a>
         </li>
       </ul>
     </div>
