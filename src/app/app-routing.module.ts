@@ -5,8 +5,7 @@ import {LoginComponent} from './auth/login/login.component';
 import {RegisterSuccessComponent} from './auth/register-success/register-success.component';
 import {HomeComponent} from './home/home.component';
 import {ProductsComponent} from './products/products.component';
-import {AddProductComponent} from './add-product/add-product.component';
-
+import {NewProductComponent} from './new-product/new-product.component';
 
 const routes: Routes = [
   {path: 'register', component: RegisterComponent},
@@ -14,7 +13,7 @@ const routes: Routes = [
   {path: 'register-success', component: RegisterSuccessComponent},
   {path: 'home', component: HomeComponent},
   {path: 'products', component: ProductsComponent},
-  {path: 'add_product', component: AddProductComponent},
+  {path: 'add_product', component: NewProductComponent},
   {path: '', redirectTo: '/login', pathMatch: 'full'}
 ];
 

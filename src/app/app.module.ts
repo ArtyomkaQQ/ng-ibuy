@@ -12,7 +12,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {Ng2Webstorage} from 'ngx-webstorage';
 import {HomeComponent} from './home/home.component';
 import {ProductsComponent} from './products/products.component';
-import {AddProductComponent} from './add-product/add-product.component';
+import { NewProductComponent } from './new-product/new-product.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +23,7 @@ import {AddProductComponent} from './add-product/add-product.component';
     RegisterSuccessComponent,
     HomeComponent,
     ProductsComponent,
-    AddProductComponent
+    NewProductComponent
   ],
   imports: [
     BrowserModule,

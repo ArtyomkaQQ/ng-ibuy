@@ -22,4 +22,8 @@ export class ProductsService {
     return this.httpClient.delete(url);
   }
 
+  public saveProduct(url, data) {
+    return this.httpClient.post(url, data);
+  }
+
 }

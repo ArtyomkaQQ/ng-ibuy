@@ -1,10 +1,10 @@
 <div class="container">
   <div class="panel panel-primary">
-    <div class="panel-heading">List products</div>
+    <h2 class="mt-5">List products</h2>
     <div class="panel-body">
-      <button class="btn btn-primary" (click)="onProducts()">Products</button>
+      <button class="btn btn-primary mt-2" (click)="onProducts()">Products</button>
     </div>
-    <div class="panel-body">
+    <div class="panel-body mt-2">
       <form #f="ngForm" (ngSubmit)="onSearch(f.value)">
         <div class="form-group">
           <label>Keyword: </label>
