@@ -6,6 +6,7 @@ import {RegisterSuccessComponent} from './auth/register-success/register-success
 import {HomeComponent} from './home/home.component';
 import {ProductsComponent} from './products/products.component';
 import {NewProductComponent} from './new-product/new-product.component';
+import {EditProductComponent} from './edit-product/edit-product.component';
 
 const routes: Routes = [
   {path: 'register', component: RegisterComponent},
@@ -13,7 +14,8 @@ const routes: Routes = [
   {path: 'register-success', component: RegisterSuccessComponent},
   {path: 'home', component: HomeComponent},
   {path: 'products', component: ProductsComponent},
-  {path: 'add_product', component: NewProductComponent},
+  {path: 'add-product', component: NewProductComponent},
+  {path: 'edit-product/:id', component: EditProductComponent},
   {path: '', redirectTo: '/login', pathMatch: 'full'}
 ];
 

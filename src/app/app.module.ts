@@ -13,6 +13,7 @@ import {Ng2Webstorage} from 'ngx-webstorage';
 import {HomeComponent} from './home/home.component';
 import {ProductsComponent} from './products/products.component';
 import { NewProductComponent } from './new-product/new-product.component';
+import { EditProductComponent } from './edit-product/edit-product.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { NewProductComponent } from './new-product/new-product.component';
     RegisterSuccessComponent,
     HomeComponent,
     ProductsComponent,
-    NewProductComponent
+    NewProductComponent,
+    EditProductComponent
   ],
   imports: [
     BrowserModule,
