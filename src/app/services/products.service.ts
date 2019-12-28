@@ -28,4 +28,12 @@ export class ProductsService {
     return this.httpClient.post(url, data);
   }
 
+  public getProduct(url): Observable<any> {
+    return this.httpClient.get(url);
+  }
+
+  public updateProduct(url, data): Observable<any> {
+    return this.httpClient.put(url, data);
+  }
+
 }

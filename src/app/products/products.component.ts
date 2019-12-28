@@ -24,9 +24,10 @@ export class ProductsComponent implements OnInit {
   onProducts() {
     this.productsService.getProducts(this.currentPage, this.size)
       .subscribe(data => {
-      this.totalPages = data['page'].totalPages;
-      this.pages = new Array<number>(this.totalPages);
-      this.products = data;
+      // @ts-ignore
+        this.totalPages = data.page.totalPages;
+        this.pages = new Array<number>(this.totalPages);
+        this.products = data;
     }, error => {
       console.log(error);
     });
@@ -46,7 +47,8 @@ export class ProductsComponent implements OnInit {
   onSearchProducts() {
     this.productsService.getProductsByKeyword(this.currentKeyword, this.currentPage, this.size)
       .subscribe(data => {
-        this.totalPages = data['page'].totalPages;
+        // @ts-ignore
+        this.totalPages = data.page.totalPages;
         this.pages = new Array<number>(this.totalPages);
         this.products = data;
       }, error => {
@@ -67,7 +69,8 @@ export class ProductsComponent implements OnInit {
   }
 
   onEditProduct(p: any) {
-    this.router.navigateByUrl('/edit-product/' + p.id);
+    const url = p._links.self.href;
+    this.router.navigateByUrl('/edit-product/' + btoa(url));
   }
 
 }

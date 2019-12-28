@@ -10,8 +10,8 @@ import {Product} from '../model/product.model';
 })
 export class NewProductComponent implements OnInit {
 
-  private currentProduct: Product;
-  private mode = 1;
+  public currentProduct: Product;
+  public mode = 1;
 
   constructor(private productsService: ProductsService, private router: Router) { }
 
