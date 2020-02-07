@@ -20,7 +20,7 @@ export class ProductsService {
     return this.httpClient.get(this.host + '/products/search/by_description_page?mc=' + mc + '&page=' + page + '&size=' + size);
   }
 
-  public deleteProducts(url) {
+  public deleteProduct(url) {
     return this.httpClient.delete(url);
   }
 

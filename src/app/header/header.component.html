@@ -35,6 +35,20 @@
     </ul>
 
     <form class="form-inline my-2 my-lg-0">
+      <ul class="navbar-nav mr-auto">
+        <div *ngIf="authService.isAuthenticated()">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {{authService.getUser().name}}
+            </a>
+
+            <div class="dropdown-menu" aria-labelledby="profileDropdown">
+              <a class="dropdown-item" routerLink="/edit-profile/{{authService.getUser().name}}">Edit profile</a>
+            </div>
+          </li>
+        </div>
+      </ul>
+
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>

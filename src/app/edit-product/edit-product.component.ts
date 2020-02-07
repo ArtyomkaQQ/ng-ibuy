@@ -9,7 +9,7 @@ import {Product} from '../model/product.model';
   styleUrls: ['./edit-product.component.css']
 })
 export class EditProductComponent implements OnInit {
-  public curreProduct: Product;
+  public currentProduct: Product;
   public url: string;
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute, private productsService: ProductsService) { }
@@ -18,7 +18,7 @@ export class EditProductComponent implements OnInit {
     this.url = atob(this.activatedRoute.snapshot.params.id);
     this.productsService.getProduct(this.url)
       .subscribe(data => {
-        this.curreProduct = data;
+        this.currentProduct = data;
       }, error => {
         console.log(error);
     });

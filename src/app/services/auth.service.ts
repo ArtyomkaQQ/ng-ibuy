@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
 import {Observable} from 'rxjs';
@@ -13,6 +13,8 @@ import {LoginPayload} from '../auth/login-payload';
 export class AuthService {
 
   private url = 'http://localhost:8080/api/auth/';
+  private username: string;
+  private userPassword: string;
 
   constructor(private httpClient: HttpClient, private localStoraqeService: LocalStorageService) {
   }
@@ -25,12 +27,23 @@ export class AuthService {
     return this.httpClient.post<JwtAutResponse>(this.url + 'login', loginPayload).pipe(map(data => {
       this.localStoraqeService.store('authenticationToken', data.authenticationToken);
       this.localStoraqeService.store('username', data.username);
+      this.username = loginPayload.username;
+      this.userPassword = loginPayload.password;
       return true;
     }));
   }
 
   isAuthenticated(): boolean {
     return this.localStoraqeService.retrieve('username') != null;
+  }
+
+  getUser(): object {
+    console.log(this.username, this.userPassword);
+    // tslint:disable-next-line:prefer-const
+    return {
+      name: this.username,
+      password: this.userPassword
+    };
   }
 
   logout() {
