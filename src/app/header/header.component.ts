@@ -17,8 +17,4 @@ export class HeaderComponent implements OnInit {
     this.authService.logout();
   }
 
-  onEditProfile() {
-    this.authService.getUser();
-  }
-
 }

@@ -1,1 +1,26 @@
-<p>edit-profile works!</p>
+<div class="container">
+  <div class="div-center">
+    <h2>Edit profile</h2>
+
+    <div class="round-container" *ngIf="currentUser">
+      <form #f="ngForm" (ngSubmit)="onUpdateUser(f.value)">
+        <div class="form-group">
+          <label class="control-label">Username</label>
+          <input class="form-control" type="text" name="username" [(ngModel)]="currentUser.username">
+        </div>
+
+        <div class="form-group">
+          <label class="control-label">Password</label>
+          <input class="form-control" type="text" [(ngModel)]="currentUser.password">
+        </div>
+
+        <div class="form-group">
+          <label class="control-label">Email</label>
+          <input class="form-control" type="text" name="email" [(ngModel)]="currentUser.email">
+        </div>
+
+        <button class="btn btn-success" type="submit">Update</button>
+      </form>
+    </div>
+  </div>
+</div>

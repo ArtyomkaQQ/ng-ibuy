@@ -13,8 +13,8 @@ import {LoginPayload} from '../auth/login-payload';
 export class AuthService {
 
   private url = 'http://localhost:8080/api/auth/';
-  private username: string;
-  private userPassword: string;
+  public username: string;
+  public userPassword: string;
 
   constructor(private httpClient: HttpClient, private localStoraqeService: LocalStorageService) {
   }
@@ -37,13 +37,12 @@ export class AuthService {
     return this.localStoraqeService.retrieve('username') != null;
   }
 
-  getUser(): object {
-    console.log(this.username, this.userPassword);
-    // tslint:disable-next-line:prefer-const
-    return {
-      name: this.username,
-      password: this.userPassword
-    };
+  public getUser(url): Observable<any> {
+    return this.httpClient.get(url);
+  }
+
+  public updateUser(url, data): Observable<any> {
+    return this.httpClient.put(url, data);
   }
 
   logout() {
