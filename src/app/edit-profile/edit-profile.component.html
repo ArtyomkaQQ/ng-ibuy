@@ -1,26 +1,22 @@
-<div class="container">
-  <div class="div-center">
-    <h2>Edit profile</h2>
+<div class="container justify-content-center">
+  <form class="form-signin" [formGroup]="editForm" (ngSubmit)="onSubmit()">
+    <h1 class="h3 mb-3 font-weight-normal">Please edit your profile</h1>
 
-    <div class="round-container" *ngIf="currentUser">
-      <form #f="ngForm" (ngSubmit)="onUpdateUser(f.value)">
-        <div class="form-group">
-          <label class="control-label">Username</label>
-          <input class="form-control" type="text" name="username" [(ngModel)]="currentUser.username">
-        </div>
-
-        <div class="form-group">
-          <label class="control-label">Password</label>
-          <input class="form-control" type="text" [(ngModel)]="currentUser.password">
-        </div>
-
-        <div class="form-group">
-          <label class="control-label">Email</label>
-          <input class="form-control" type="text" name="email" [(ngModel)]="currentUser.email">
-        </div>
-
-        <button class="btn btn-success" type="submit">Update</button>
-      </form>
+    <div class="form-group">
+      <label class="sr-only" for="inputUsername">Username</label>
+      <input type="text" id="inputUsername" [formControlName]="'username'" class="form-control" placeholder="Username" required="" autofocus="">
     </div>
-  </div>
+
+    <div class="form-group">
+      <label class="sr-only" for="inputEmail">Email</label>
+      <input type="email" id="inputEmail" [formControlName]="'email'" class="form-control" placeholder="Email" required="" autofocus="">
+    </div>
+
+    <div class="form-group">
+      <label class="sr-only" for="inputPassword">Password</label>
+      <input type="password" id="inputPassword" [formControlName]="'password'" class="form-control" placeholder="Password" required="">
+    </div>
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Edit</button>
+  </form>
 </div>

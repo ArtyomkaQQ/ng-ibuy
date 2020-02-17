@@ -6,6 +6,7 @@ import {LocalStorageService} from 'ngx-webstorage';
 import {JwtAutResponse} from '../auth/jwt-aut-response';
 import {RegisterPayload} from '../auth/register-payload';
 import {LoginPayload} from '../auth/login-payload';
+import {ProfilePayload} from '../edit-profile/profile-payload';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +22,10 @@ export class AuthService {
 
   register(registerPayload: RegisterPayload): Observable<any> {
     return this.httpClient.post(this.url + 'signup', registerPayload);
+  }
+
+  editProfile(profilePayload: ProfilePayload): Observable<any> {
+    return this.httpClient.post(this.url + 'signup', profilePayload);
   }
 
   login(loginPayload: LoginPayload): Observable<boolean> {
@@ -41,8 +46,8 @@ export class AuthService {
     return this.httpClient.get(url);
   }
 
-  public updateUser(url, data): Observable<any> {
-    return this.httpClient.put(url, data);
+  public deleteUser(url) {
+    return this.httpClient.delete(url);
   }
 
   logout() {

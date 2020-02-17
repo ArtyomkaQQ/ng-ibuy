@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {AuthService} from '../services/auth.service';
-import {User} from '../model/user.model';
+import {FormBuilder, FormGroup} from '@angular/forms';
+import {ProfilePayload} from './profile-payload';
 
 @Component({
   selector: 'app-edit-profile',
@@ -10,10 +11,24 @@ import {User} from '../model/user.model';
 })
 export class EditProfileComponent implements OnInit {
 
-  private currentUser: User;
+  editForm: FormGroup;
+  profilePayload: ProfilePayload;
+
+  private currentUser: any;
   private url: string;
 
-  constructor(private router: Router, private authService: AuthService) { }
+  constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthService) {
+    this.editForm = this.formBuilder.group({
+      username: '',
+      email: '',
+      password: '',
+    });
+    this.profilePayload = {
+      username: '',
+      email: '',
+      password: ''
+    };
+  }
 
   ngOnInit() {
     this.url = 'http://localhost:8080/users/search/findByUsername?username=' + this.authService.username;
@@ -27,14 +42,21 @@ export class EditProfileComponent implements OnInit {
       });
   }
 
-  onUpdateUser(value: any) {
-    this.authService.updateUser(this.url, value)
-      .subscribe(data => {
-        alert('Update succeeded');
-        this.router.navigateByUrl('/home');
-      }, error => {
-        console.log(error);
-      });
+  onSubmit() {
+    console.log(this.url);
+
+    this.authService.deleteUser(this.url);
+
+    this.profilePayload.username = this.editForm.get('username').value;
+    this.profilePayload.email = this.editForm.get('email').value;
+    this.profilePayload.password = this.editForm.get('password').value;
+
+    this.authService.editProfile(this.profilePayload).subscribe(data => {
+      console.log('profile editing succeeded');
+      this.router.navigateByUrl('/login');
+    }, error => {
+      console.log('register failed');
+    });
   }
 
 }
