@@ -43,9 +43,10 @@ export class EditProfileComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.url);
-
-    this.authService.deleteUser(this.url);
+    this.authService.deleteUser(this.currentUser._links.self.href).subscribe(data => {
+    }, error => {
+      console.log('Error deleting user');
+    });
 
     this.profilePayload.username = this.editForm.get('username').value;
     this.profilePayload.email = this.editForm.get('email').value;
@@ -56,6 +57,14 @@ export class EditProfileComponent implements OnInit {
       this.router.navigateByUrl('/login');
     }, error => {
       console.log('register failed');
+    });
+  }
+
+  onDeleteUser() {
+    this.authService.deleteUser(this.currentUser._links.self.href).subscribe(data => {
+
+    }, error => {
+      console.log('Error deleting user');
     });
   }
 
