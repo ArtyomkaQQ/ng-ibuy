@@ -1,56 +1,58 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" routerLink="/home">Navbar</a>
+<div class="round-container">
+  <header>
+    <!-- Header Start -->
+    <div class="header-area header-transparrent ">
+      <div class="main-header header-sticky">
+        <div class="container">
+          <div class="row align-items-center">
+            <!-- Logo -->
+            <!--<div class="col-xl-2 col-lg-2 col-md-2">
+              <div class="logo">
+                <a href="/home"><img src="assets/img/logo-3.png" alt="" style="width:100px; height:49px"></a>
+              </div>
+            </div>-->
+            <div class="col-xl-10 col-lg-10 col-md-10">
+              <!-- Main-menu -->
+              <div class="main-menu f-right d-none d-lg-block">
+                <nav>
+                  <ul id="navigation">
+                    <li><a *ngIf="!authService.isAuthenticated()" (click)="onClickLogin()">Login</a></li>
+                    <li><a *ngIf="!authService.isAuthenticated()" (click)="onClickRegister()">Register</a></li>
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+                    <li><a *ngIf="authService.isAuthenticated()" (click)="logout()">Logout</a></li>
+                    <li>
+                      <a href="#" *ngIf="authService.isAuthenticated()">Products</a>
+                      <ul class="submenu" *ngIf="authService.isAuthenticated()">
+                        <li><a routerLink="/products">Search for products</a></li>
+                        <li> <a routerLink="/add-product">Add product</a></li>
+                        <li><a routerLink="/edit-profile/{{authService.username}}">Edit profile</a></li>
+                      </ul>
+                    </li>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <div *ngIf="!authService.isAuthenticated()">
-        <li class="nav-item">
-          <a class="nav-link" (click)="onClickLogin()">Login</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" (click)="onClickRegister()">Register</a>
-        </li>
-      </div>
-
-      <div *ngIf="authService.isAuthenticated()">
-        <button class="logout btn btn-default" (click)="logout()">Logout</button>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Products
-          </a>
-
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" routerLink="/products">Search for products</a>
-            <a class="dropdown-item" routerLink="/add-product">Add product</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
-        </li>
-      </div>
-    </ul>
-
-    <form class="form-inline my-2 my-lg-0">
-      <ul class="navbar-nav mr-auto">
-        <div *ngIf="authService.isAuthenticated()">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              {{authService.username}}
-            </a>
-
-            <div class="dropdown-menu" aria-labelledby="profileDropdown">
-              <a class="dropdown-item" routerLink="/edit-profile/{{authService.username}}">Edit profile</a>
+                    <!--<li class="active"><a href="index.html">Home</a></li>
+                    <li><a href="feature.html">Feature</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li>
+                      <a href="#">Pages</a>
+                      <ul class="submenu">
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="single-blog.html">Blog Details</a></li>
+                        <li><a href="elements.html">Element</a></li>
+                      </ul>
+                    </li>-->
+                  </ul>
+                </nav>
+              </div>
             </div>
-          </li>
+            <!-- Mobile Menu -->
+            <div class="col-12">
+              <div class="mobile_menu d-block d-lg-none"></div>
+            </div>
+          </div>
         </div>
-      </ul>
-
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  </div>
-</nav>
+      </div>
+    </div>
+    <!-- Header End -->
+  </header>
+</div>

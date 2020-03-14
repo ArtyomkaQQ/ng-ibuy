@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../services/auth.service';
+import {HttpClient} from "@angular/common/http";
+import {Router} from "@angular/router";
 
 declare const loader: any;
 
@@ -17,6 +19,8 @@ export class HeaderComponent implements OnInit {
 
   logout() {
     this.authService.logout();
+    loader();
+    window.location.href = 'http://localhost:4200/login';
   }
 
   onClickLogin() {
