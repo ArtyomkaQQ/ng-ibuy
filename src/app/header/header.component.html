@@ -21,7 +21,7 @@
 
                     <li><a *ngIf="authService.isAuthenticated()" (click)="logout()">Logout</a></li>
                     <li>
-                      <a href="#" *ngIf="authService.isAuthenticated()">Products</a>
+                      <a *ngIf="authService.isAuthenticated()">Products</a>
                       <ul class="submenu" *ngIf="authService.isAuthenticated()">
                         <li><a routerLink="/products">Search for products</a></li>
                         <li> <a routerLink="/add-product">Add product</a></li>
