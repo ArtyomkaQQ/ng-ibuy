@@ -15,6 +15,7 @@ import {ProductsComponent} from './products/products.component';
 import { NewProductComponent } from './new-product/new-product.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import {LoaderComponent} from './loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
     ProductsComponent,
     NewProductComponent,
     EditProductComponent,
-    EditProfileComponent
+    EditProfileComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
