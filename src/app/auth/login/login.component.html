@@ -1,11 +1,13 @@
-<div class="contentsz">
+<app-loader></app-loader>
+
+<div class="contents">
   <div class="container">
     <form class="form-signin" [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
       <h1 class="h3 mb-3 font-weight-normal">Please Sign in</h1>
 
       <div class="form-group">
         <label class="sr-only" for="inputUsername">Username</label>
-        <input type="text" id="inputUsername" [formControlName]="'username'" class="form-control" placeholder="Username" required="" autofocus="">
+        <input type="text" id="inputUsername" [formControlName]="'username'" class="form-control" placeholder="Username" required="">
       </div>
 
       <div class="form-group">

@@ -1,18 +1,2 @@
-<app-loader></app-loader>
 <app-header></app-header>
 <router-outlet></router-outlet>
-
-<script>
-  document.onreadystatechange = function () {
-    var state = document.readyState;
-    if (state === 'interactive') {
-      document.getElementsByClassName('contentsz').style.visibility="hidden";
-    } else if (state === 'complete') {
-      setTimeout(function(){
-        document.getElementById('interactive');
-        document.getElementById('load').style.visibility="hidden";
-        document.getElementsByClassName('contentsz').style.visibility="visible";
-      },1000);
-    }
-  }
-</script>
