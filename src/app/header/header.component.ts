@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../services/auth.service';
 
+declare const loader: any;
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -17,4 +19,13 @@ export class HeaderComponent implements OnInit {
     this.authService.logout();
   }
 
+  onClickLogin() {
+    loader();
+    window.location.href = 'http://localhost:4200/login';
+  }
+
+  onClickRegister() {
+    loader();
+    window.location.href = 'http://localhost:4200/register';
+  }
 }
