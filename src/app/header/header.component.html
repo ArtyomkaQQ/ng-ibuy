@@ -18,7 +18,7 @@
                   <ul id="navigation">
                     <li class="pointer"><a (click)="onClickHome()">Home</a></li>
                     <li *ngIf="authService.isAuthenticated()">
-                      <a>Products</a>
+                      <a style="cursor: default;">Products</a>
                       <ul class="submenu">
                         <li class="pointer"><a (click)="onClickProducts()">Search for products</a></li>
                         <li class="pointer"> <a (click)="onClickAddProduct()">Add product</a></li>
