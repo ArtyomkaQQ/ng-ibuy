@@ -15,6 +15,11 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
+  onClickHome() {
+    loader();
+    window.location.href = 'http://localhost:4200/home';
+  }
+
   logout() {
     this.authService.logout();
     loader();
