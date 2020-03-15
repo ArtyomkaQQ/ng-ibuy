@@ -20,14 +20,14 @@
                     <li><a *ngIf="!authService.isAuthenticated()" (click)="onClickRegister()">Register</a></li>
 
                     <li><a *ngIf="authService.isAuthenticated()" (click)="logout()">Logout</a></li>
-                    <li>
+                    <li *ngIf="authService.isAuthenticated()">
                       <a>Products</a>
-                      <ul class="submenu" *ngIf="authService.isAuthenticated()">
+                      <ul class="submenu">
                         <li><a (click)="onClickProducts()">Search for products</a></li>
                         <li> <a (click)="onClickAddProduct()">Add product</a></li>
                       </ul>
                     </li>
-                    <li><a (click)="onClickEditProfile()">Edit profile</a></li>
+                    <li *ngIf="authService.isAuthenticated()"><a (click)="onClickEditProfile()">Edit profile</a></li>
                   </ul>
                 </nav>
               </div>

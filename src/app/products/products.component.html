@@ -2,43 +2,45 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<div class="container">
-  <div class="panel panel-primary">
-    <h2 class="mt-5">List products</h2>
-    <div class="panel-body">
-      <button class="btn btn-primary mt-2" (click)="onProducts()">Products</button>
-    </div>
-    <div class="panel-body mt-2">
-      <form #f="ngForm" (ngSubmit)="onSearch(f.value)">
-        <div class="form-group">
-          <label>Keyword:</label>
-          <input class="ml-3" type="text" name="keyword" ngModel/>
-          <button class="btn btn-primary ml-3" type="submit">
-            Search
-          </button>
-        </div>
-      </form>
-
-      <ul class="mt-5">
-        <li *ngFor="let p of products._embedded.products">
-          <div class="card grow mb-5" style="width: 18rem;">
-            <img src="assets/img/product-logo.png" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">{{p.description}}</h5>
-              <p class="card-text">{{p.price|number: '0.2'}}</p>
-              <p class="card-text">{{p.quantity}}</p>
-              <a class="btn btn-danger" (click)="onDeleteProduct(p)">Delete</a>
-              <a class="btn btn-primary" (click)="onEditProduct(p)">Edit</a>
-            </div>
+<div class="round-container mt-5">
+  <div class="container">
+    <div class="panel panel-primary">
+      <h2 class="mt-5">List products</h2>
+      <div class="panel-body">
+        <button class="btn btn-primary mt-2" (click)="onProducts()">Products</button>
+      </div>
+      <div class="panel-body mt-2">
+        <form #f="ngForm" (ngSubmit)="onSearch(f.value)">
+          <div class="form-group">
+            <label>Keyword:</label>
+            <input class="ml-3" type="text" name="keyword" ngModel/>
+            <button class="btn btn-primary ml-3" type="submit">
+              Search
+            </button>
           </div>
-        </li>
-      </ul>
+        </form>
 
-      <ul class="nav nav-tabs justify-content-center" *ngIf="pages">
-        <li class="nav-item" [ngClass]="i == currentPage?'active': ''" *ngFor="let p of pages; let i = index">
-          <a class="nav-link" (click)="onProductsPage(i)">{{i + 1}}</a>
-        </li>
-      </ul>
+        <ul class="mt-5">
+          <li *ngFor="let p of products._embedded.products">
+            <div class="card grow mb-5" style="width: 18rem;">
+              <img src="assets/img/product-logo.png" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">{{p.description}}</h5>
+                <p class="card-text">{{p.price|number: '0.2'}}</p>
+                <p class="card-text">{{p.quantity}}</p>
+                <a class="btn btn-danger" (click)="onDeleteProduct(p)">Delete</a>
+                <a class="btn btn-primary" (click)="onEditProduct(p)">Edit</a>
+              </div>
+            </div>
+          </li>
+        </ul>
+
+        <ul class="nav nav-tabs justify-content-center" *ngIf="pages">
+          <li class="nav-item" [ngClass]="i == currentPage?'active': ''" *ngFor="let p of pages; let i = index">
+            <a class="nav-link" (click)="onProductsPage(i)">{{i + 1}}</a>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
