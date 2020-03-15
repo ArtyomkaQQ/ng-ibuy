@@ -151,3 +151,6 @@
   -moz-box-shadow: gainsboro 0 0 30px;
   box-shadow: gainsboro 0 0 30px;
 }
+
+/* Pointer */
+.pointer {cursor: pointer;}
