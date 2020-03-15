@@ -2,12 +2,15 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
+<app-loader></app-loader>
+
 <div class="round-container mt-5">
   <div class="container">
     <div class="panel panel-primary">
       <h2 class="mt-5">List products</h2>
       <div class="panel-body">
-        <button class="btn btn-primary mt-2" (click)="onProducts()">Products</button>
+        <button class="button rounded-0 primary-bg text-white w-20 btn_1 boxed-btn" (click)="onProducts()">Products</button>
+        <button class="button rounded-0 primary-bg text-white w-20 btn_1 boxed-btn ml-3">Add product</button>
       </div>
       <div class="panel-body mt-2">
         <form #f="ngForm" (ngSubmit)="onSearch(f.value)">
