@@ -21,26 +21,13 @@
 
                     <li><a *ngIf="authService.isAuthenticated()" (click)="logout()">Logout</a></li>
                     <li>
-                      <a *ngIf="authService.isAuthenticated()">Products</a>
+                      <a>Products</a>
                       <ul class="submenu" *ngIf="authService.isAuthenticated()">
-                        <li><a routerLink="/products">Search for products</a></li>
-                        <li> <a routerLink="/add-product">Add product</a></li>
-                        <li><a routerLink="/edit-profile/{{authService.username}}">Edit profile</a></li>
+                        <li><a (click)="onClickProducts()">Search for products</a></li>
+                        <li> <a (click)="onClickAddProduct()">Add product</a></li>
                       </ul>
                     </li>
-
-                    <!--<li class="active"><a href="index.html">Home</a></li>
-                    <li><a href="feature.html">Feature</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="pricing.html">Pricing</a></li>
-                    <li>
-                      <a href="#">Pages</a>
-                      <ul class="submenu">
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="single-blog.html">Blog Details</a></li>
-                        <li><a href="elements.html">Element</a></li>
-                      </ul>
-                    </li>-->
+                    <li><a (click)="onClickEditProfile()">Edit profile</a></li>
                   </ul>
                 </nav>
               </div>

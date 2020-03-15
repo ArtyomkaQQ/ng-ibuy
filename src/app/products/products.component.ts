@@ -10,7 +10,7 @@ import {Router} from '@angular/router';
 export class ProductsComponent implements OnInit {
 
   public products: any;
-  public size = 5;
+  public size = 6;
   public currentPage = 0;
   public totalPages: number;
   public pages: Array<number>;

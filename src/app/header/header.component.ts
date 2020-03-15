@@ -30,4 +30,19 @@ export class HeaderComponent implements OnInit {
     loader();
     window.location.href = 'http://localhost:4200/register';
   }
+
+  onClickProducts() {
+    loader();
+    window.location.href = 'http://localhost:4200/products';
+  }
+
+  onClickAddProduct() {
+    loader();
+    window.location.href = 'http://localhost:4200/add-product';
+  }
+
+  onClickEditProfile() {
+    loader();
+    window.location.href = 'http://localhost:4200/edit-profile/' + this.authService.username;
+  }
 }
