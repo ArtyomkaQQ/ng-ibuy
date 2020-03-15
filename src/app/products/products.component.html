@@ -7,13 +7,21 @@
 <div class="round-container mt-5">
   <div class="container">
     <div class="panel panel-primary">
-      <h2 class="mt-5 mb-5">List products</h2>
       <div class="panel-body">
-        <button class="button rounded-0 primary-bg text-white w-20 btn_1 boxed-btn" (click)="onProducts()">Products</button>
-        <button class="button rounded-0 primary-bg text-white w-20 btn_1 boxed-btn ml-3">Add product</button>
+        <button class="button rounded-0 primary-bg text-white w-20 btn_1 boxed-btn" (click)="onProducts()">Store products</button>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+        <div class=" h-100">
+          <div class="d-flex h-100">
+            <div class="searchbar">
+              <input class="search_input" type="text" name="" placeholder="Search...">
+              <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div class="panel-body mt-2">
+
+      <div class="panel-body mt-5">
         <form #f="ngForm" (ngSubmit)="onSearch(f.value)">
           <div class="form-group">
             <label>Keyword:</label>
