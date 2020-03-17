@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+declare const loader: any;
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -12,4 +14,8 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
+  onClickProducts() {
+    loader();
+    window.location.href = 'http://localhost:4200/products';
+  }
 }
