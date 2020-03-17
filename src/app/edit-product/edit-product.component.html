@@ -1,26 +1,30 @@
-<div class="container">
-  <div class="div-center">
-    <h2>Edit product</h2>
-
-    <div class="round-container" *ngIf="currentProduct">
-      <form #f="ngForm" (ngSubmit)="onUpdateProduct(f.value)">
-        <div class="form-group">
-          <label class="control-label">Description</label>
-          <input class="form-control" type="text" name="description" [(ngModel)]="currentProduct.description">
+<div class="div-center">
+  <div class="round-container">
+    <div class="container">
+      <div class="row">
+        <div class="container">
+          <div class="row">
+            <a href="#" class="intro-banner-vdo-play-btn pinkBg" target="_blank">
+              <i class="glyphicon glyphicon-play whiteText" aria-hidden="true"></i>
+              <span class="ripple pinkBg"></span>
+              <span class="ripple pinkBg"></span>
+              <span class="ripple pinkBg"></span>
+            </a>
+          </div>
         </div>
+      </div>
 
-        <div class="form-group">
-          <label class="control-label">Quantity</label>
-          <input class="form-control" type="number" name="quantity" [(ngModel)]="currentProduct.quantity">
+      <div class="container">
+        <div class="row">
+          <form #f="ngForm" (ngSubmit)="onUpdateProduct(f.value)">
+            <input type="text" name="description" [(ngModel)]="currentProduct.description" required>
+            <input placeholder="Quantity" type="number" name="quantity" [(ngModel)]="currentProduct.quantity" required>
+            <input placeholder="Price" type="text" name="price" [(ngModel)]="currentProduct.price" required>
+            <button class="btn btn-outline-primary" type="submit">Edit</button>
+          </form>
         </div>
-
-        <div class="form-group">
-          <label class="control-label">Price</label>
-          <input class="form-control" type="text" name="price" [(ngModel)]="currentProduct.price">
-        </div>
-
-        <button class="btn btn-success" type="submit">Update</button>
-      </form>
+      </div>
     </div>
   </div>
 </div>
+

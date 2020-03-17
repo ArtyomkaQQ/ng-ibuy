@@ -1,48 +1,31 @@
 <div class="div-center">
   <div class="round-container" *ngIf="mode == 1">
-    <div class="jumbotron">
-      <p class="text-center">Add product</p>
-    </div>
-    <form #f="ngForm" (ngSubmit)="onSaveProduct(f.value)">
-      <div class="form-group">
-        <label class="control-label">Description</label>
-        <input class="form-control" type="text" name="description" ngModel="">
+
+    <div class="container">
+      <div class="row">
+        <div class="container">
+          <div class="row">
+            <a href="#" class="intro-banner-vdo-play-btn pinkBg" target="_blank">
+              <i class="glyphicon glyphicon-play whiteText" aria-hidden="true"></i>
+              <span class="ripple pinkBg"></span>
+              <span class="ripple pinkBg"></span>
+              <span class="ripple pinkBg"></span>
+            </a>
+          </div>
+        </div>
       </div>
 
-      <div class="form-group">
-        <label class="control-label">Quantity</label>
-        <input class="form-control" type="number" name="quantity" ngModel="">
+      <div class="container">
+        <div class="row">
+          <form #f="ngForm" (ngSubmit)="onSaveProduct(f.value)">
+            <h2>New product</h2>
+            <input placeholder="Description" type="text" name="description" ngModel="" required>
+            <input placeholder="Quantity" type="number" name="quantity" ngModel="" required>
+            <input placeholder="Price" type="text" name="price" ngModel="" required>
+            <button class="btn btn-outline-success" type="submit">Add</button>
+          </form>
+        </div>
       </div>
-
-      <div class="form-group">
-        <label class="control-label">Price</label>
-        <input class="form-control" type="text" name="price" ngModel="">
-      </div>
-
-      <button class="btn btn-success" type="submit">Save</button>
-    </form>
-  </div>
-
-  <div class="round-container" *ngIf="mode == 2">
-    <button class="btn btn-success" (click)="onNewProduct()">New product</button>
-    <div class="form-group">
-      <label>ID:</label>
-      <label>{{currentProduct.id}}</label>
-    </div>
-
-    <div class="form-group">
-      <label>Description:</label>
-      <label>{{currentProduct.description}}</label>
-    </div>
-
-    <div class="form-group">
-      <label>Price:</label>
-      <label>{{currentProduct.price}}</label>
-    </div>
-
-    <div class="form-group">
-      <label>Quantity:</label>
-      <label>{{currentProduct.quantity}}</label>
     </div>
   </div>
 </div>

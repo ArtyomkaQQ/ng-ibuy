@@ -19,6 +19,7 @@ export class NewProductComponent implements OnInit {
   }
 
   onSaveProduct(data: any) {
+    console.log(data);
     this.productsService.saveProduct(this.productsService.host + '/products', data)
       .subscribe(res => {
         // this.router.navigateByUrl('/products');

@@ -1,0 +1,120 @@
+.round-container {
+  margin: 0 auto;
+  padding: 5%;
+  width: 25%;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  -webkit-box-shadow: gainsboro 0 0 20px;
+  -moz-box-shadow: gainsboro 0 0 20px;
+  box-shadow: gainsboro 0 0 20px;
+}
+
+.div-center {
+  display: flex; justify-content: center; align-items: center; height: 100vh
+}
+
+/* Animation */
+.pinkBg {
+  background-color: #8f1bdc!important;
+  background-image: linear-gradient(90deg, #BA58DC,#8f1bdc);
+}
+.intro-banner-vdo-play-btn{
+  height:60px;
+  width:60px;
+  position:absolute;
+  top:25%;
+  left:50%;
+  text-align:center;
+  margin:-30px 0 0 -30px;
+  border-radius:100px;
+  z-index:1
+}
+.intro-banner-vdo-play-btn i{
+  line-height:56px;
+  font-size:30px
+}
+.intro-banner-vdo-play-btn .ripple{
+  position:absolute;
+  width:160px;
+  height:160px;
+  z-index:-1;
+  left:50%;
+  top:50%;
+  opacity:0;
+  margin:-80px 0 0 -80px;
+  border-radius:100px;
+  -webkit-animation:ripple 1.8s infinite;
+  animation:ripple 1.8s infinite
+}
+
+@-webkit-keyframes ripple{
+  0%{
+    opacity:1;
+    -webkit-transform:scale(0);
+    transform:scale(0)
+  }
+  100%{
+    opacity:0;
+    -webkit-transform:scale(1);
+    transform:scale(1)
+  }
+}
+@keyframes ripple{
+  0%{
+    opacity:1;
+    -webkit-transform:scale(0);
+    transform:scale(0)
+  }
+  100%{
+    opacity:0;
+    -webkit-transform:scale(1);
+    transform:scale(1)
+  }
+}
+.intro-banner-vdo-play-btn .ripple:nth-child(2){
+  animation-delay:.3s;
+  -webkit-animation-delay:.3s
+}
+.intro-banner-vdo-play-btn .ripple:nth-child(3){
+  animation-delay:.6s;
+  -webkit-animation-delay:.6s
+}
+
+/* Form */
+input {
+  margin: 40px 25px;
+  width: 200px;
+  display: block;
+  border: none;
+  padding: 10px 0;
+  border-bottom: solid 1px #BA58DC;
+  -webkit-transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+  transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 96%, #BA58DC 4%);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 96%, #BA58DC 4%);
+  background-position: -200px 0;
+  background-size: 200px 100%;
+  background-repeat: no-repeat;
+  color: #8f1bdc;
+}
+
+input:focus, input:valid {
+  box-shadow: none;
+  outline: none;
+  background-position: 0 0;
+}
+
+input::-webkit-input-placeholder {
+  font-family: 'roboto', sans-serif;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+input:focus::-webkit-input-placeholder, input:valid::-webkit-input-placeholder {
+  color: #BA58DC;
+  font-size: 11px;
+  -webkit-transform: translateY(-20px);
+  transform: translateY(-20px);
+  visibility: visible !important;
+}
