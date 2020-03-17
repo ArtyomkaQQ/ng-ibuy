@@ -5,9 +5,12 @@
     <div class="container">
       <div class="row">
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
+          <h2>Login</h2>
           <input type="text" id="inputUsername" [formControlName]="'username'" name="description" placeholder="Username" required>
           <input type="password" id="inputPassword" [formControlName]="'password'" name="password" placeholder="Password" required>
-          <button class="btn btn-outline-primary" type="submit">Sign in</button>
+          <div class="button-center">
+            <button class="button rounded-0 primary-bg text-white w-20 btn_1 boxed-btn" type="submit">Sign in</button>
+          </div>
         </form>
       </div>
     </div>

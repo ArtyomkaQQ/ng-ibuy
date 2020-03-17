@@ -1,31 +1,20 @@
 <app-loader></app-loader>
 
-<div class="contents">
-  <div class="container justify-content-center contents">
-    <form class="form-signin" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-      <h1 class="h3 mb-3 font-weight-normal">Please Register</h1>
-
-      <div class="form-group">
-        <label class="sr-only" for="inputUsername">Username</label>
-        <input type="text" id="inputUsername" [formControlName]="'username'" class="form-control" placeholder="Username" required="" autofocus="">
+<div class="div-center">
+  <div class="round-container">
+    <div class="container">
+      <div class="row">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+          <h2>Please register</h2>
+          <input type="text" id="inputUsername" [formControlName]="'username'" name="description" placeholder="Username" autofocus="" required>
+          <input type="email" id="inputEmail" [formControlName]="'email'" placeholder="Email" required="" autofocus="">
+          <input type="password" id="inputPassword" [formControlName]="'password'" name="password" placeholder="Password" required>
+          <input type="password" id="inputConfirmPassword" [formControlName]="'confirmPassword'" placeholder="Confirm Password" required="">
+          <div class="button-center">
+            <button class="button rounded-0 primary-bg text-white w-20 btn_1 boxed-btn" type="submit">Register</button>
+          </div>
+        </form>
       </div>
-
-      <div class="form-group">
-        <label class="sr-only" for="inputEmail">Email</label>
-        <input type="email" id="inputEmail" [formControlName]="'email'" class="form-control" placeholder="Email" required="" autofocus="">
-      </div>
-
-      <div class="form-group">
-        <label class="sr-only" for="inputPassword">Password</label>
-        <input type="password" id="inputPassword" [formControlName]="'password'" class="form-control" placeholder="Password" required="">
-      </div>
-
-      <div class="form-group">
-        <label class="sr-only" for="inputConfirmPassword">Password</label>
-        <input type="password" id="inputConfirmPassword" [formControlName]="'confirmPassword'" class="form-control" placeholder="Confirm Password" required="">
-      </div>
-
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
-    </form>
+    </div>
   </div>
 </div>

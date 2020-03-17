@@ -17,7 +17,7 @@
       <div class="container">
         <div class="row">
           <form #f="ngForm" (ngSubmit)="onUpdateProduct(f.value)">
-            <input type="text" name="description" [(ngModel)]="currentProduct.description" required>
+            <input placeholder="Description" type="text" name="description" [(ngModel)]="currentProduct.description" required>
             <input placeholder="Quantity" type="number" name="quantity" [(ngModel)]="currentProduct.quantity" required>
             <input placeholder="Price" type="text" name="price" [(ngModel)]="currentProduct.price" required>
             <button class="btn btn-outline-primary" type="submit">Edit</button>
