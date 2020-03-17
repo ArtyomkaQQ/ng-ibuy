@@ -15,6 +15,7 @@ export class ProductsComponent implements OnInit {
   public totalPages: number;
   public pages: Array<number>;
   private currentKeyword = '';
+  public show = false;
 
   constructor(private productsService: ProductsService, private router: Router) { }
 
@@ -23,6 +24,7 @@ export class ProductsComponent implements OnInit {
   }
 
   onProducts() {
+    this.show = !this.show;
     this.productsService.getProducts(this.currentPage, this.size)
       .subscribe(data => {
       // @ts-ignore
@@ -40,6 +42,7 @@ export class ProductsComponent implements OnInit {
   }
 
   onSearch(form: any) {
+    this.show = !this.show;
     this.currentPage = 0;
     this.currentKeyword = form.keyword;
     this.onSearchProducts();

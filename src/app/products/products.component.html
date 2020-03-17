@@ -9,43 +9,46 @@
     <div class="panel panel-primary">
       <div class="panel-body">
         <button class="button rounded-0 primary-bg text-white w-20 btn_1 boxed-btn" (click)="onProducts()">Store products</button>
+      </div>
 
-        <form onsubmit="submitFn(this, event);" #f="ngForm" (ngSubmit)="onSearch(f.value)">
-          <div class="search-wrapper">
-            <div class="input-holder">
-              <input type="text" name="keyword" ngModel class="search-input" placeholder="Type to search" />
-              <button class="search-icon" onclick="searchToggle(this, event);" type="submit"><span></span></button>
-            </div>
-            <span class="close" onclick="searchToggle(this, event);"></span>
-            <div class="result-container">
-            </div>
+      <form onsubmit="submitFn(this, event);" #f="ngForm" (ngSubmit)="onSearch(f.value)">
+        <div class="search-wrapper">
+          <div class="input-holder">
+            <input type="text" name="keyword" ngModel class="search-input" placeholder="Type to search" />
+            <button class="search-icon" onclick="searchToggle(this, event);" type="submit"><span></span></button>
           </div>
-        </form>
-      </div>
-
-
-      <div class="panel-body mt-5">
-        <ul class="mt-5">
-          <li *ngFor="let p of products._embedded.products">
-            <div class="card grow mb-5" style="width: 18rem;">
-              <img src="assets/img/product-logo.png" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">{{p.description}}</h5>
-                <p class="card-text">{{p.price|number: '0.2'}}</p>
-                <p class="card-text">{{p.quantity}}</p>
-                <button class="btn btn-outline-primary"><a (click)="onEditProduct(p)">Edit</a></button>
-                <button class="btn btn-outline-danger ml-2"><a (click)="onDeleteProduct(p)">Delete</a></button>
-              </div>
-            </div>
-          </li>
-        </ul>
-
-        <ul class="nav nav-tabs justify-content-center" *ngIf="pages">
-          <li class="nav-item" [ngClass]="i == currentPage?'active': ''" *ngFor="let p of pages; let i = index">
-            <a class="nav-link" (click)="onProductsPage(i)">{{i + 1}}</a>
-          </li>
-        </ul>
-      </div>
+          <span class="close" onclick="searchToggle(this, event);"></span>
+          <div class="result-container">
+          </div>
+        </div>
+      </form>
     </div>
   </div>
 </div>
+
+<ng-container *ngIf="show">
+  <div class="round-container mt-5">
+    <div class="panel-body mt-5" style="margin-top: 20%">
+      <ul class="mt-5">
+        <li *ngFor="let p of products._embedded.products">
+          <div class="card grow mb-5" style="width: 18rem;">
+            <img src="assets/img/product-logo.png" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{p.description}}</h5>
+              <p class="card-text">{{p.price|number: '0.2'}}</p>
+              <p class="card-text">{{p.quantity}}</p>
+              <button class="btn btn-outline-primary"><a (click)="onEditProduct(p)">Edit</a></button>
+              <button class="btn btn-outline-danger ml-2"><a (click)="onDeleteProduct(p)">Delete</a></button>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+      <ul class="nav nav-tabs justify-content-center" *ngIf="pages">
+        <li class="nav-item" [ngClass]="i == currentPage?'active': ''" *ngFor="let p of pages; let i = index">
+          <a class="nav-link" (click)="onProductsPage(i)">{{i + 1}}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</ng-container>

@@ -29,9 +29,9 @@
     function submitFn(obj, evt){
       value = $(obj).find('.search-input').val().trim();
 
-      _html = "Yup yup! Your search text sounds like this: ";
+      _html = "Search result: ";
       if(!value.length){
-        _html = "Yup yup! Add some text friend :D";
+        _html = "No input";
       }
       else{
         _html += "<b>" + value + "</b>";
